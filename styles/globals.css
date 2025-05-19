@@ -1,4 +1,10 @@
 :root {
+  --card-gradient: linear-gradient(145deg, #1a1d20, #2a2d30);
+  --card-highlight: linear-gradient(145deg, #1e2124, #2d3035);
+  --text-primary: #ffffff;
+  --text-secondary: #b3b3b3;
+  --accent-color: #3498db;
+  --transition-smooth: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   --max-width: 1100px;
   --border-radius: 12px;
 }
@@ -15,7 +21,8 @@ body {
 }
 
 body {
-  background: gainsboro;
+  background: #121416;
+  color: var(--text-primary);
 }
 
 a {

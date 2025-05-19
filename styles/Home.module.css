@@ -21,32 +21,78 @@ Layout
 
 /* Cards */
 .main__section {
-	max-width: 90%;
-  margin: auto;
+  max-width: 1400px;
+  margin: 2rem auto;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 320px), 1fr));
+  gap: clamp(1rem, 2vw, 2.5rem);
+  padding: 0 clamp(1rem, 3vw, 2rem);
+  width: 100%;
 }
 
 
 .launch_card {
-	display: inline-flex;
+  position: relative;
+  display: flex;
   flex-direction: column;
-	gap: 10px;
-  width: 300px;
-  height: 510px;
-	align-items: center;
-	padding: 1rem;
-	margin: 8px;
-	border: 1px solid #ccc;
-	border-radius: 10px;
-	box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
-	background: #3a3e41ac;
+  align-items: center;
+  padding: clamp(1rem, 3vw, 2rem);
+  background: linear-gradient(145deg, #1a1d20, #2a2d30);
+  border-radius: 20px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  width: 100%;
+  min-height: min-content;
+}
+
+.launch_card:hover {
+  transform: translateY(-8px);
+  background: linear-gradient(145deg, #1e2124, #2d3035);
+  box-shadow: 0 12px 48px rgba(52, 152, 219, 0.1);
+}
+
+.launch_card .img {
+  width: clamp(120px, 15vw, 180px);
+  height: clamp(120px, 15vw, 180px);
+  object-fit: contain;
+  margin-bottom: 1.5rem;
+  padding: 1.5rem;
+  background: rgba(255, 255, 255, 0.03);
+  border-radius: 50%;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.launch_card:hover .img {
+  transform: scale(1.05) rotate(5deg);
+  background: rgba(255, 255, 255, 0.05);
 }
 
 .card__content {
-	display: flex;
-	flex-direction: column;
-	gap: 2px;
+  width: 100%;
+  padding: clamp(1rem, 2vw, 1.5rem);
+  background: rgba(255, 255, 255, 0.03);
+  border-radius: 15px;
+  backdrop-filter: blur(10px);
 }
 
+.card__content p {
+  color: #b3b3b3;
+  line-height: 1.6;
+  margin-bottom: 0.75rem;
+  font-size: clamp(0.875rem, 2vw, 0.95rem);
+  transition: color 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.card__content p:first-child,
+.card__content p:nth-child(2) {
+  color: #3498db;
+  font-weight: 500;
+  padding-bottom: 0.75rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  margin-bottom: 1rem;
+}
 
 
 /* Images */
@@ -58,7 +104,9 @@ Layout
 Typography
 ========= */
 .header__title {
-	font-size: clamp(1.5rem, 2.5vw, 4rem);
+	font-size: clamp(1.5rem, 5vw, 4rem);
+  padding: 0 1rem;
+  text-align: center;
 }
 
 .launch_card p {
@@ -66,7 +114,12 @@ Typography
 }
 
 .launch_card h2 {
-	font-size: 1rem;
+  font-size: clamp(1.2rem, 3vw, 1.5rem);
+  font-weight: 600;
+  color: #ffffff;
+  margin-bottom: 1.5rem;
+  text-align: center;
+  letter-spacing: -0.5px;
 }
 
 
@@ -77,4 +130,72 @@ Media
 	.nav {
 		margin-bottom: min(2rem, 10%);
 	}
+}
+
+/* =======
+Pagination
+======= */
+.pagination {
+  margin: 3rem 0;
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+  flex-wrap: wrap;
+  justify-content: center;
+  padding: 0 1rem;
+}
+
+.pagination__button {
+  background: linear-gradient(145deg, #1a1d20, #2a2d30);
+  color: #ffffff;
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  padding: clamp(0.5rem, 1.5vw, 0.75rem) clamp(0.75rem, 2vw, 1.5rem);
+  border-radius: 12px;
+  font-weight: 500;
+  letter-spacing: 0.5px;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  min-width: clamp(36px, 5vw, 44px);
+  margin: 0 0.25rem;
+  cursor: pointer;
+  font-size: clamp(0.875rem, 2vw, 1rem);
+}
+
+.pagination__button:not(:disabled):hover {
+  background: linear-gradient(145deg, #1e2124, #2d3035);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(52, 152, 219, 0.2);
+}
+
+.pagination__button:disabled {
+  background: linear-gradient(145deg, #1a1a1a, #252525);
+  color: #666;
+  border-color: rgba(255, 255, 255, 0.02);
+  cursor: not-allowed;
+  opacity: 0.7;
+  transform: none;
+  box-shadow: none;
+}
+
+.pagination__button.active {
+  background: #3498db;
+  box-shadow: 0 4px 12px rgba(52, 152, 219, 0.3);
+}
+
+/* Add responsive adjustments */
+@media (max-width: 480px) {
+  .launch_card {
+    border-radius: 15px;
+  }
+
+  .card__content {
+    padding: 1rem;
+  }
+
+  .pagination {
+    gap: 0.5rem;
+  }
+
+  .pagination__button {
+    margin: 0 0.125rem;
+  }
 }
