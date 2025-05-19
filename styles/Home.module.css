@@ -181,6 +181,46 @@ Pagination
   box-shadow: 0 4px 12px rgba(52, 152, 219, 0.3);
 }
 
+/* Error Message Styles */
+.error {
+  text-align: center;
+  padding: 2rem;
+  margin: 2rem auto;
+  background: linear-gradient(145deg, #1a1d20, #2a2d30);
+  border-radius: 20px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  max-width: 600px;
+}
+
+.error h2 {
+  color: #e74c3c;
+  margin-bottom: 1rem;
+  font-size: clamp(1.5rem, 3vw, 2rem);
+}
+
+.error p {
+  color: #b3b3b3;
+  margin-bottom: 1.5rem;
+  font-size: clamp(1rem, 2vw, 1.1rem);
+}
+
+.error__button {
+  background: #3498db;
+  color: white;
+  border: none;
+  padding: 0.75rem 1.5rem;
+  border-radius: 12px;
+  cursor: pointer;
+  font-size: 1rem;
+  transition: all 0.3s ease;
+}
+
+.error__button:hover {
+  background: #2980b9;
+  transform: translateY(-2px);
+}
+
 /* Add responsive adjustments */
 @media (max-width: 480px) {
   .launch_card {

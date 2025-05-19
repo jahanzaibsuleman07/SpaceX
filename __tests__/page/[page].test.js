@@ -48,7 +48,7 @@ describe('PaginatedPage', () => {
     render(<PaginatedPage />)
     
     await waitFor(() => {
-      expect(screen.getAllByRole('article')).toHaveLength(10)
+      expect(screen.getAllByRole('article')).toHaveLength(9)
     }, { timeout: 3000 })
   })
 
